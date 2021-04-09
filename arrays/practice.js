@@ -18,7 +18,9 @@ var arr = [10,20,30];
 */
 
 //Code Here
-
+function first(arr) {
+  return arr[0];
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -33,7 +35,9 @@ var arr = [40,50,60];
 */
 
 //Code Here
-
+function last(arr) {
+  return arr[arr.length-1];
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -48,8 +52,12 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 */
 
 //Code Here
-
-
+function looper(family) {
+  for (let i=0; i<family.length; i++) {
+    alert(family[i]);
+  }
+}
+  
 
 ////////// PROBLEM 4 //////////
 
@@ -63,7 +71,11 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 */
 
 //Code Here
-
+function reversedLooper(letters) {
+  for(let i = letters.length-1; i>=0; i--) {
+    alert(letters[i]);
+  }
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -78,6 +90,16 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 */
 
 //Code Here
+function evenFinder(nums) {
+  let evenArray = []
+  for(let i=0; i<nums.length; i++) {
+    if(nums[i]%2===0) {
+      evenArray.push(nums[i]);
+    } 
+  }
+  return evenArray;  
+}
+
 
 
 
@@ -107,8 +129,25 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 */
 
 //Code Here
+  /*--Create 3 arrays; first array (index =0) is evenArray, second array (index=1) is oddArray.
+  loop through array, evaluate if the value at each index is odd([i]%2===1) or even ([i]%2===0).
+  If number at index is odd, push to oddArray, if number at index is even, push to evenArray.
+  return sortedArray with evenArray at index=0 and oddArray at index=1
+  */ 
 
-
+function divider(numbersArray) {
+  let oddArray = [];
+  let evenArray = [];
+  let sortedArray = [evenArray, oddArray];
+  for(let i = 0; i<numbersArray.length; i++){
+    if( numbersArray[i]%2===0 ){
+      evenArray.push(numbersArray[i]);
+    }else{
+      oddArray.push(numbersArray[i]);
+    }
+  }
+  return sortedArray;
+}
 
 ////////// PROBLEM 7 //////////
 
@@ -129,7 +168,16 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
-
+function finder(array) {
+  let randomNumber = getRandomArbitrary();
+  let isNumberInArray = false;
+  for(let i = 0; i<array.length; i++) {
+    if (array[i] === randomNumber) {
+      isNumberInArray = true;
+    }
+  }
+  return isNumberInArray;
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -158,6 +206,32 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
+function removeItem(myGroceryList, removedItem) {
+  if (!myGroceryList || !removedItem) {
+    let updatedGroceryList = [];
+    return updatedGroceryList;
+  } else {
+    for(let i = 0; i<myGroceryList.length; i++) {
+      if (myGroceryList[i] === removedItem) {
+        myGroceryList.splice(i,1);
+        return myGroceryList;
+      } else {
+        return myGroceryList;
+      }
+    }
+  }
+}
+
+function addItem(myGroceryList, addedItem) {
+  if (!myGroceryList || !addedItem) {
+    let updatedGroceryList = [];
+    return updatedGroceryList;
+  } else {
+    let updatedGroceryList = myGroceryList.slice(0, myGroceryList.length);
+    updatedGroceryList.push(addedItem);
+    return updatedGroceryList;
+  }
+}
 
 
 
@@ -168,7 +242,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
-
+function maker() {
+  let numArray = [];
+  for (let i = 1; i <= 215; i++) {
+    numArray.push(i);
+  }
+  return numArray;
+}
 
 
 ////////// PROBLEM 10 //////////
@@ -184,7 +264,20 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
+function addTen(numbers) {
+  let arrayPlusTen = [];
+  let arrayInt = [];
+  
+  for(let i = 0; i<numbers.length; i++){
+    arrayInt.push(parseInt(numbers[i]));
+  }
 
+  for(let i = 0; i<arrayInt.length; i++){
+    arrayInt[i] += 10;
+    arrayPlusTen.push(arrayInt[i]);
+  }
+  return arrayPlusTen;
+}
 
 
 ////////// PROBLEM 11 //////////
@@ -209,7 +302,9 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+function longer(arr1,arr2) {
+  return arr1.length > arr2.length ? arr1: arr2;
+}
 
 
 /*
@@ -221,7 +316,15 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+function both(arr1,arr2) {
+  let newArray = [];
+  for(let i = 0; i<arr1.length; i++) {
+    if(arr2.includes(arr1[i])){
+      newArray.push(arr1[i]);
+    }
+  }
+  return newArray;
+}
 
 
 ////////// PROBLEM 12 //////////
@@ -262,6 +365,24 @@ var colt = {
 */
 
 //Code Here
+const listOfCandidates = [joe, cahlan, ryan, colt];
+
+function hireEmployee(name, array) {
+  array.push(name);
+}
+
+function employeeList (name){
+  hireEmployee(name, devMountainEmployees);
+}
+
+function recruiterJob (array) {
+  for(let i=0; i < array.length; i++) {
+    employeeList(array[i]);
+  }
+}
+
+recruiterJob(listOfCandidates);
+console.log(devMountainEmployees);
 
 
 
@@ -271,7 +392,16 @@ var colt = {
 */
 
 //Code Here
+function leaveOfAbsence(name, employees) {
+  for(let i = 0; i<employees.length; i++) {
+    if (name === employees[i].name) {
+      employees.splice(i,1);
+    }
+  }
+  return employees;
+}
 
+leaveOfAbsence("Cahlan", devMountainEmployees);
 
 
 ////////// PROBLEM 13 //////////
@@ -283,7 +413,7 @@ var colt = {
 */
 
 //Code Here
-
+const users = [];
 
 
 /*
@@ -304,8 +434,27 @@ var user1 = {
 // Do not edit the code above.
 
 //Code Here
+function makeUser (name, email, password, username) {
+  return {
+    name: name,
+    email: email,
+    password: password,
+    username: username
+  }
+}
 
+const user2 = makeUser('Joe Schmo', 'joe.schmo@devmounta.in', 'helloThere', 'schmoMama');
+const user3 = makeUser('Golly Mismolly', 'golly.mismolly@devmounta.in', 'password12', 'mistery');
+const user4 = makeUser('Clark Kent', 'clark.kent@devmounta.in', 'ImSuperman', 'notSuperman');
 
+function addUsers(user, array){
+  array.push(user);
+}
+
+addUsers(user1, users);
+addUsers(user2, users);
+addUsers(user3, users);
+addUsers(user4, users);
 
 /*
   Now you have a very common data structure. 
@@ -318,6 +467,16 @@ var user1 = {
 */
 
 //Code Here
+function removeUserByEmail (email, list) {
+  for(let i = 0; i<list.length; i++){
+    if (email === list[i].email){
+      list.splice(i,1);
+    }
+  }
+  return list;
+}
+
+removeUserByEmail('mark.mciver@devmounta.in', users);
 
 
 
